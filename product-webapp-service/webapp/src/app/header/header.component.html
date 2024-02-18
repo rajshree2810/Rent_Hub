@@ -1,0 +1,65 @@
+
+  <header>
+    <div>
+      <div class="logo"> <a routerLink="/home">RentHUB </a></div>
+      <span style="margin-block-start: 5px;  font-size: 24px;"><a routerLink="/home"><i class="material-icons" >gamepad</i></a></span>
+     
+      <ng-container *ngIf="isLoggedIn; else loggedOutLinks">
+        <div class="separator"></div>
+        <div class="menu">
+         
+          <span style="margin-block-start: 5px;"><i class="material-icons">store</i></span>
+          <a routerLink="/sell">Sell</a>
+        
+          <div class="dropdown">
+            <span style="margin-block-start: 5px;"><i class="material-icons">person</i></span>
+            <a id="profile" >Profile</a>
+            <div class="dropdown-content">
+              <div class="dropdown-card">
+                <ul>
+                  <li><a routerLink="/profilepage">Profile</a></li>
+                  <li><a routerLink="/productHistory">Order History</a></li>
+                  <li><a routerLink="/main">Chat</a></li>
+                  <li><a routerLink="/cart">Cart</a></li>
+                  <li><a [routerLink]="" (click)="logout()">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- <span style="margin-block-start: 5px;"><i class="material-icons">exit_to_app</i></span>
+          <a (click)="logout()">Logout</a> -->
+        </div>
+      </ng-container>
+      <ng-template #loggedOutLinks>
+        <div class="separator"></div>
+        <div class="menu">
+          <!-- <span style="margin-block-start: 5px;margin-inline-start: 0;"><i class="material-icons" style="margin-inline-start: 0;">home</i></span>
+          <a routerLink="/home">Home</a> -->
+          <!-- <span style="margin-block-start: 5px;"><i class="material-icons">chat</i></span>
+          <a routerLink="/main">Chat</a>
+          <span style="margin-block-start: 5px;"><i class="material-icons">store</i></span>
+          <a routerLink="/sell">Sell</a> -->
+          <span style="margin-block-start: 5px;"><i class="material-icons">store</i></span>
+          <a routerLink="/sell">Sell</a>
+          <span style="margin-block-start: 5px;"><i class="material-icons">person</i></span>
+          <a routerLink="/login">Login</a><a routerLink="/register">Register</a>
+          <!-- <div class="dropdown">
+            <span style="margin-block-start: 5px;"><i class="material-icons">person</i></span>
+            <a id="profile">Profile</a>
+            <div class="dropdown-content">
+              <div class="dropdown-card">
+                <ul>
+                  <li><a routerLink="/profilepage">Profile</a></li>
+                  <li><a routerLink="/productHistory">Order History</a></li>
+                  <li><a routerLink="/main">Chat</a></li>
+                  <li> <span style="margin-block-start: 5px;"></span>
+                    <a (click)="logout()">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </ng-template>
+    </div>
+  </header>
+

@@ -1,0 +1,71 @@
+
+<div class="new-sections section-1">
+    <div class="content">
+        <h2>Sell for Free &amp; Earn in Easy Steps! <i class="material-icons" style="color: #fba31c; vertical-align: middle; font-size: 40px;">attach_money</i></h2>
+    </div>
+    <div class="rounded-box">
+        
+        <i class="material-icons" style="color: #fff; font-size: 50px; display: block; margin-bottom: 10px;" routerLink="/product">add_circle</i>
+        
+        <a routerLink="../product" routerLinkActive="active">
+        <p style="color: white; text-align: center;">Add product & description</p></a>
+    </div>
+</div>
+
+<div class="new-sections section-2" style="background-color: white; color: #0d1338;">
+    <div class="centered-bar" style="background-color: #fba31c; color: #0d1338; padding: 10px; text-align: center;">
+        <p>BLOG - By the Sellers - for the sellers</p>
+    </div>
+    <!-- Content for Section 2 goes here -->
+    <div class="container blog-grid">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of displayedBlogs; let i = index">
+          <div class="blog-card">
+            <div class="blog-header">
+              <h2 style="color: #0d1338; font-weight: bold;">{{ item.blogId }} - {{ item.blogTitle }}</h2>
+              <p style="color: #fba31c ; font-weight: bold;">{{ item.authorName }}</p>
+            </div>
+            <div class="blog-content">
+              <p style="font-size: 14px;">{{ item.blogContent }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+      <div class="pagination-buttons">
+        <button class="arrow-button" (click)="previousPage()" [disabled]="currentPage === 0">
+          <span class="arrow left-arrow" [ngClass]="{ 'disabled': currentPage === 0 }">&larr;</span>
+        </button>
+        <button class="arrow-button" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">
+          <span class="arrow right-arrow" [ngClass]="{ 'disabled': currentPage === totalPages - 1 }">&rarr;</span>
+        </button>
+      </div>
+      
+    
+      <div class="row justify-content-center">
+        <div class="col-md-4 d-flex flex-column align-items-center">
+          <div class="cta text-center">
+            <p class="cta-text">
+              Next story can be yours, become a seller right away and earn!
+            </p>
+            <a routerLink="/add-blog" class="btn btn-primary btn-block" style="background-color: hsl(36, 97%, 55%);">
+              Add Your Story
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      
+</div>
+
+
+  
+  
+  
+  
+  
+  
+

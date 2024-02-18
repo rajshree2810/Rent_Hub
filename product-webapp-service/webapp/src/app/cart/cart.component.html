@@ -1,0 +1,27 @@
+<div class="cart-container">
+    <h2 class="cart-title">Your Cart</h2>
+    <div *ngIf="cartItems.length === 0" class="empty-cart-message">Your cart is empty. Why wait?
+        when you have the Best and Efficient products waiting for you!</div>
+    <div class="cart-items">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <div class="product-card">
+          <div class="product-image">
+            <img *ngIf="item.productImageUrl" [src]="item.productImageUrl" alt="{{ item.productName }}">
+          </div>
+          <div class="product-details">
+            <h3>{{ item.productName }}</h3>
+            <p><span class="property-name">Price:</span> {{ item.productPrice | currency: 'INR' }}</p>
+            <p><span class="property-name">Category:</span> {{ item.productCategory }}</p>
+            <button class="delete-button" (click)="removeFromCart(item)">Remove from Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="checkout-button" *ngIf="cartItems.length > 0" (click)="routeToPayment()">Checkout</button>
+    <button class="checkout-button" style="margin-left: 5px;" routerLink="/product-list">Add More</button>
+  </div>
+
+
+  <!-- <button class="buy-now-button" (click)="routeToPayment()">Buy Now</button> -->
+  
+  

@@ -1,0 +1,220 @@
+<!--Profile Detail Show-->
+<div class="container rounded bg-white mt-5 mb-5" *ngIf="!stage2&&!edit">
+    <div class="row ">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle " height="100px" width="100px" [src]="userData.imageUrl">
+                <span class="font-weight-bold">Hello {{userData.firstName}}</span>
+                <span class="text-black-50">{{userData.email}}</span>
+            </div>
+        </div>
+        <div class="col-md-8 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Details</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label class="labels">Username</label>
+                        <input type="text" class="form-control" disabled placeholder="userId" [value]="userData.userId">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="labels">First Name</label>
+                        <input type="text" class="form-control" placeholder="first name" disabled [value]="userData.firstName">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Last Name</label>
+                        <input type="text" class="form-control" disabled [value]="userData.lastName" placeholder="last name">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Contact Number</label>
+                        <input type="text" class="form-control" placeholder="+91" disabled [value]="userData.phone">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Email ID</label>
+                        <input type="text" class="form-control" placeholder="@" disabled [value]="userData.email">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels" for="gender">Gender</label>
+                        <input type="text" class="form-control" placeholder="gender" disabled [value]="userData.gender">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Address</label>
+                        <input type="text" class="form-control" placeholder="address" disabled [value]="userData.address">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">D.O.B</label>
+                        <input type="text" class="form-control" placeholder="D.O.B" disabled [value]="userData.dateofbirth">
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" style="margin-right: 10px;" type="button" (click)="toogleEdit()">Edit Profile</button>
+                    <button class="btn btn-primary profile-button" style="margin-left: 10px;" type="button" (click)="togleStage()">Next</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Profile Detail Edit-->
+
+<div class="container rounded bg-white mt-5 mb-5" *ngIf="!stage2&&edit">
+    <div class="row ">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle" height="100px" width="100px" [src]="userData.imageUrl">
+                <span class="font-weight-bold">{{userData.firstName}}</span>
+                <span class="text-black-50">{{userData.email}}</span>
+            </div>
+            <div class="row">
+                <button (click)="openWidget()">Choose Image</button>
+            </div>
+        </div>
+        <div class="col-md-8 border-right">
+            <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm)">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Details</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">User Id</label>
+                            <input type="text" class="form-control" formControlName="userId"  placeholder="userid" value="{{userData.userId}}">
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="labels">First Name</label>
+                            <input type="text" class="form-control" formControlName="firstName" placeholder="first name" [value]="userData.firstName">
+                            <small *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.hasError('required')">firstName cannot be empty</small>
+                            <small *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.hasError('pattern')">firstName can include characters only</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName" [value]="userData.lastName" placeholder="surname">
+                            <small *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.hasError('required')">lastName cannot be empty</small>
+                            <small *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.hasError('pattern')">lastName can include characters only</small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Contact Number</label>
+                            <input type="text" class="form-control" formControlName="phone" placeholder="enter phone number" [value]="userData.phone">
+                            <small *ngIf="profileForm.get('phone')?.touched && profileForm.get('phone')?.hasError('required')">phone number cannot be empty</small>
+                            <small *ngIf="profileForm.get('phone')?.touched && profileForm.get('lastName')?.hasError('pattern')">10 digit number is required</small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Email ID</label>
+                            <input type="text" class="form-control" formControlName="email" placeholder="@" [value]="userData.email">
+                            <small *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.hasError('required')">email cannot be empty</small>
+                            <small *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.hasError('email')">email format is required</small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Gender</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="gender" [value]="userData.gender">
+                                <option selected>Please select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <small *ngIf="profileForm.get('gender')?.touched && profileForm.get('gender')?.hasError('required')">gender cannot be empty</small>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">Address</label>
+                            <input type="text" class="form-control" formControlName="address" placeholder="address" [value]="userData.address">
+                            <small *ngIf="profileForm.get('address')?.touched && profileForm.get('address')?.hasError('required')">address cannot be empty</small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">D.O.B</label>
+                            <input type="date" class="form-control" formControlName="dateofbirth" placeholder="D.O.B" [value]="userData.dateofbirth">
+                            <small *ngIf="profileForm.get('dateofbirth')?.touched && profileForm.get('address')?.hasError('dateofbirth')">address cannot be empty</small>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" [disabled]="profileForm.invalid" type="submit" >Save Profile</button>
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Payment Detail Show-->
+
+<div class="container rounded bg-white mt-5 mb-5" *ngIf="stage2&&!edit">
+    <h3>Payment Details</h3>
+    <div class="row ">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <label class="labels">Bank Name</label>
+                <input type="text" class="form-control" placeholder="bank name" disabled value="{{bank.bankName}}">
+            </div>
+            <div class="col-md-12">
+                <label class="labels">Account Number</label>
+                <input type="text" class="form-control" value="{{bank.accountNumber}}" disabled placeholder="account number">
+            </div>
+            <div class="col-md-12">
+                <label class="labels">IFSC</label>
+                <input type="text" class="form-control" placeholder="ifsc" disabled value="{{bank.ifsc}}"></div>
+            <div class="col-md-12">
+                <label class="labels">Holder Name</label>
+                <input type="text" class="form-control" placeholder="holderName" disabled value="{{bank.holderName}}">
+            </div>
+            <div class="mt-5 text-center">
+                <button class="btn btn-primary profile-button" (click)="togleStage()" style="margin-right: 10px;" type="button">Back</button>
+                <button class="btn btn-primary profile-button" (click)="toogleEdit()" style="margin-left: 10px;" type="button">Edit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Payment Detail Edit-->
+
+<div class="container rounded bg-white mt-5 mb-5" *ngIf="stage2&&edit">
+    <div class="row ">
+        <div class="row mt-3">
+            <form [formGroup]="bankForm" (ngSubmit)="submitBankDetail(bankForm)">
+                <div class="col-md-12">
+                    <label class="labels">Bank Name</label>
+                    <input type="text" class="form-control" placeholder="bank name" value="{{bank.bankName}}" formControlName="bankName">
+                    <small *ngIf="bankForm.get('bankName')?.touched && bankForm.get('bankName')?.hasError('required')">bankName cannot be empty</small>
+                    <small *ngIf="bankForm.get('bankName')?.touched && bankForm.get('bankName')?.hasError('pattern')">bankName can include characters only</small>
+                </div>
+                <div class="col-md-12">
+                    <label class="labels">Account Number</label>
+                    <input type="text" class="form-control" formControlName="accountNumber" value="{{bank.accountNumber}}" placeholder="acc. no">
+                    <small *ngIf="bankForm.get('accountNumber')?.touched && bankForm.get('accountNumber')?.hasError('required')">account number cannot be empty</small>
+                    <small *ngIf="bankForm.get('accountNumber')?.touched && bankForm.get('accountNumber')?.hasError('pattern')">account number can include numbers only</small>
+                </div>
+                <div class="col-md-12">
+                    <label class="labels">IFSC Code</label>
+                    <input type="text" class="form-control" formControlName="ifsc" value="{{bank.ifsc}}" placeholder="ifsc code">
+                    <small *ngIf="bankForm.get('ifsc')?.touched && bankForm.get('ifsc')?.hasError('required')">IFSC cannot be empty</small>
+                    <small *ngIf="bankForm.get('ifsc')?.touched && bankForm.get('ifsc')?.hasError('pattern')">IFSC can only include characters and numbers</small>
+                </div>
+                <div class="col-md-12">
+                    <label class="labels">Account Holder Name</label>
+                    <input type="text" class="form-control" formControlName="holderName" value="{{bank.holderName}}" placeholder="name">
+                    <small *ngIf="bankForm.get('holderName')?.touched && bankForm.get('holderName')?.hasError('required')">Account holder cannot be empty</small>
+                    <small *ngIf="bankForm.get('holderName')?.touched && bankForm.get('holderName')?.hasError('pattern')">name can only include characters</small>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" style="margin-right: 10px;" type="submit" [disabled]="bankForm.invalid">Submit</button>
+                    <button class="btn btn-primary profile-button" style="margin-left: 10px;" type="button" (click)="toogleEdit()" >Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

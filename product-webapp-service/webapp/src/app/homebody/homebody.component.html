@@ -1,0 +1,161 @@
+
+  <main>
+    
+    <div class="left-content">
+      <h1>Build Your Dream with Our Equipment</h1>
+      <p>Discover a world of endless possibilities with our top-notch equipment rental platform. Whether you're a seasoned professional or a passionate DIY enthusiast, we've got you covered. Experience seamless rentals, exceptional service, and a vast array of high-quality equipment at your fingertips. Unlock the true potential of your projects today!</p>
+    </div>
+    <div class="right-content">
+      <!-- <form [formGroup]="equipmentForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="equipment">Find Required Equipment:</label>
+          <input type="text" id="equipment" name="equipment" placeholder="Enter equipment name" formControlName="equipment">
+        </div>
+        <div class="date-range">
+          <label for="fromDate">From:</label>
+          <input type="date" id="fromDate" name="fromDate" formControlName="fromDate">
+  
+          <label for="toDate">To:</label>
+          <input type="date" id="toDate" name="toDate" formControlName="toDate">
+        </div>
+        <button type="submit" >Search</button>
+      </form> -->
+
+      <form [formGroup]="equipmentForm" (ngSubmit)="onSubmit()" style=" color: black;">
+        <h2 style="font-weight: bold; text-align: center;">Easy Steps</h2>
+        <ol style="list-style-type: none; padding-left: 0;">
+          <li style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="margin-right: 10px;">Find Your Equipment</span>
+            <span class="material-icons">search</span>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="margin-right: 10px;">Check Duration of Availability</span>
+            <span class="material-icons">schedule</span>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="margin-right: 10px;">Book & Get It Right Away!</span>
+            <span class="material-icons">done_all</span>
+          </li>
+        </ol>
+        
+        <div style="text-align: left;">
+          <p>Explore our range of equipment and services:</p>
+        
+        </div>
+        <button type="submit" [routerLink]="'/product-list'" >Explore</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- New sections with different colors -->
+  <div class="new-sections section-1">
+    <div class="left-image">
+      <img src="https://pngimg.com/d/tractor_PNG16126.png" style="width: 400px; margin-right: 10px;">
+    </div>
+    <div class="right-text">
+      <h2>Why We Are Best?</h2>
+      <p>A Modern Equipment Company</p>
+      <p>Our intuitive platform makes it easy for users to search, compare, and reserve rental items in just a few clicks. We prioritize simplicity and efficiency for a seamless rental journey.RentHUB Rentals has a full lineup of equipment to stay warm and tackle any project.</p>
+    </div>
+    
+  </div>
+  <div class="centered-text">
+    <h2>Get Your Rentals in Easy Steps</h2>
+    <div class="pros">
+      <div class="pros-item">
+        <i class="material-icons">search</i>
+        <p>01 Search</p>
+      </div>
+      <div class="pros-item">
+        <i class="material-icons">compare</i>
+        <p>02 Compare</p>
+      </div>
+      <div class="pros-item">
+        <i class="material-icons">chat</i>
+        <p>03 Chat</p>
+      </div>
+      <div class="pros-item">
+        <i class="material-icons">check_circle</i>
+        <p>04 Reserve</p>
+      </div>
+    </div>
+  
+</div>
+
+<div class="new-sections section-2">
+  <h2 class="section-title">Awesome Features</h2>
+  <h3 class="featured-title">Featured Rental Equipments</h3>
+  <p class="subtext">
+    Discover a world of efficiency and convenience with our rental platform's exceptional features. Access top-notch equipment for diverse projects and industries, and enjoy a seamless user-friendly interface for hassle-free rentals.
+  </p>
+  <div class="feature-boxes">
+    <div class="feature-box">
+      <i class="material-icons" style="color: #fba31c;">precision_manufacturing</i>
+      <p style="color: #fff; font-weight: bold;">Precision Service</p>
+      <p style="color: #fff;">Get top-notch equipment that delivers precision and accuracy for your projects.</p>
+    </div>
+    <div class="feature-box">
+      <i class="material-icons" style="color: #fba31c;">verified_user</i>
+      <p style="color: #fff; font-weight: bold;">Certified</p>
+      <p style="color: #fff;">Rent certified equipment that meets the highest industry standards for quality and safety.</p>
+    </div>
+    <div class="feature-box">
+      <i class="material-icons" style="color: #fba31c;">attach_money</i>
+      <p style="color: #fff; font-weight: bold;">Economic</p>
+      <p style="color: #fff;">Enjoy cost-effective solutions with our economic equipment rental options.</p>
+    </div>
+  </div>
+</div>
+<!-- Section 3 -->
+<div class="new-sections section-3">
+  <h2 style="color: #fba31c; text-align: center;">Great Equipment</h2>
+  <h1 style="color: #0d1338; font-size: 36px; text-align: center;">Trending Rental Equipment</h1>
+  <p style="color: #0d1338; text-align: center;">
+    Discover the latest and most sought-after trending rental equipment at RentHUB. Stay ahead of the curve with our handpicked selection of cutting-edge tools and machinery.
+  </p>
+  <div class="equipment-container">
+    <div class="equipment-box">
+      <img src="https://media.sunbeltrentals.com/is/image/sunbeltrentals/catClass_0070025?fmt=webp" alt="Equipment 1">
+      <a routerLink="/product-list" class="row" style="background-color: #0d1338; color: #fff; padding: 10px;text-decoration: none;">
+        <p style="margin: 0;" >Aerial work platforms</p>
+      </a>
+    </div>
+    <div class="equipment-box">
+      <img src="https://media.sunbeltrentals.com/is/image/sunbeltrentals/catClass_0070030?fmt=webp" alt="Equipment 2">
+      <a routerLink="/product-list" class="row" style="background-color: #0d1338; color: #fff; padding: 10px;text-decoration: none;">
+        <p style="margin: 0;">General construction tools</p>
+      </a>
+    </div>
+    <div class="equipment-box">
+      <img src="https://media.sunbeltrentals.com/is/image/sunbeltrentals/catClass_0120405?fmt=webp" alt="Equipment 3">
+      <a routerLink="/product-list" class="row" style="background-color: #0d1338; color: #fff; padding: 10px;text-decoration: none;">
+        <p style="margin: 0;">Concrete And Masonry</p>
+      </a>
+    </div>
+    <!-- <div class="equipment-box">
+      <img src="https://media.sunbeltrentals.com/is/image/sunbeltrentals/catClass_0010030?fmt=webp" alt="Equipment 4">
+      <a href="#" class="row" style="background-color: #0d1338; color: #fff; padding: 10px;text-decoration: none;">
+        <p style="margin: 0;">Forklifts</p>
+      </a>
+    </div> -->
+  </div>
+</div>
+
+
+<div class="new-sections section-4">
+  <div class="newsletter-content">
+    <h2 class="centered-text" style="color: #000;">Subscribe to our Newsletter</h2>
+    <div class="subscribe-form">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+
+
+

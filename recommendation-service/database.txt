@@ -1,0 +1,13 @@
+// Create dummy users
+CREATE (:User {userId: 1, name: 'Alice', email: 'alice@example.com', phone: 1234567890, address: '123 Main Street', description: 'A valued customer'})
+CREATE (:User {userId: 2, name: 'Bob', email: 'bob@example.com', phone: 9876543210, address: '456 Park Avenue', description: 'A frequent renter'})
+CREATE (:User {userId: 3, name: 'Charlie', email: 'charlie@example.com', phone: 5555555555, address: '789 Elm Road', description: 'An occasional user'})
+
+// Create dummy products
+CREATE (:Product {productId: 101, manufacturerDesc: 'ABC Corporation', quantityInStock: 100, price: 49.99, rentalPeriod: date('2023-08-02')})
+CREATE (:Product {productId: 102, manufacturerDesc: 'XYZ Company', quantityInStock: 50, price: 29.99, rentalPeriod: date('2023-08-02')})
+CREATE (:Product {productId: 103, manufacturerDesc: 'PQR Ltd', quantityInStock: 200, price: 19.99, rentalPeriod: date('2023-08-02')})
+
+//connects a User node to a Product node. The RENTED_BY relationship can have properties like rentalDate, returnDate,
+MATCH (u:User), (p:Product) WHERE u.userId = {userId} AND p.productId = {productId}
+CREATE (u)-[:RENTED_BY {rentalDate: date('2023-08-02'), returnDate: date('2023-08-10')}]->(p)

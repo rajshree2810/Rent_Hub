@@ -1,0 +1,16 @@
+.table-image{
+    width: 100px;
+    height: 100px;
+}
+
+#sticky-footer {
+   position : sticky;
+   top : 0;
+   font-size: 30px;
+   color: white;
+   background-color:  #3991bd;
+   width: 150px;
+   height: 150px;
+ }
+
+ 

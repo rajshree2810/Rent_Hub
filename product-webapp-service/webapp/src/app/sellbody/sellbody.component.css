@@ -1,0 +1,216 @@
+/* Section 1 */
+.section-1 {
+    background-color: #0d1338;
+    color: #fff;
+    padding: 60px 20px;
+  }
+  
+  /* Section 2 */
+  .section-2 {
+    background-color: #fff;
+    color: #0d1338;
+    padding: 60px 20px;
+  }
+  
+  /* Common styles for both sections */
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fba31c;
+    text-align: center;
+  }
+  
+  .content h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .content h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  /* .rounded-box {
+    background-color: #211641;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; 
+  } */
+
+  .new-sections {
+    margin-bottom: 20px; /* Add a margin at the bottom of each new section */
+  }
+  .new-sections {
+    background-color: #0d1338;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.rounded-box {
+    background-color: #211641;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.new-sections.section-1 {
+    margin-bottom: 10px; /* Decrease the space between Section 1 and Section 2 */
+  }
+
+  .new-sections.section-2 {
+    margin-top: 10px; /* Decrease the space above the centered bar */
+  }
+
+  .centered-bar {
+    background-color: #fba31c;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .centered-bar p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+ 
+  
+  .centered-bar {
+    background-color: #fba31c;
+    color: #0d1338;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .centered-bar {
+    background-color: #fba31c;
+    color: #0d1338;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Styles for blog grid */
+/* Add your global styles here */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  row-gap: 20px; 
+  justify-content: center;
+}
+
+
+.blog-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px; 
+  background-color: #f9f9f9;
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.blog-card:hover {
+  background-color: #d9d9d9;
+}
+
+.blog-content {
+  display:block;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.blog-content.expanded {
+  display: block;
+  max-height: 1000px; /* Adjust as needed */
+  transition: max-height 0.3s ease-in-out;
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-custom {
+  background-color: #fba31c;
+  color: #0d1338;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+  
+  color: #fba31c;
+}
+.btn-primary:hover {
+  background-color: #0d1338;
+  color: #0d1338;
+}
+.arrow-button {
+  background-color: #0d1338;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.arrow-button:hover {
+  background-color: #fba31c;
+}
+
+.arrow {
+  font-size: 24px;
+}
+
+.left-arrow {
+  margin-right: 5px;
+}
+
+.right-arrow {
+  margin-left: 5px;
+}
+.disabled {
+  opacity: 0.5; /* Grey out the arrow */
+  cursor: not-allowed; /* Show not-allowed cursor */
+}

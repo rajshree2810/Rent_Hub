@@ -1,0 +1,166 @@
+<!-- <div class="product-list-container">
+    <div class="product-item" *ngFor="let product of productList">
+      <div class="product-image">
+        <img *ngIf="product.productImageUrl" [src]="product.productImageUrl" alt="{{ product.productName }}">
+      </div>
+      <div class="product-info">
+        <h3>{{ product.productName }}</h3>
+        <p>Category: {{ product.productCategory }}</p>
+        <p>Price: {{ product.productPrice | currency:'INR' }}</p>
+        <button (click)="viewProductDescription(product)">View Description</button>
+      </div>
+    </div>
+  </div> -->
+
+
+<!-- <div *ngFor="let pro of productDetails">
+    <h2>{{ pro.productName }}</h2>
+    <p>Price: {{ pro.productPrice }}</p>
+    <p>Brand: {{ pro.productBrand }}</p>
+    <p>Description: {{ pro.productDescription }}</p>
+    <p>Category: {{ pro.productCategory }}</p>
+</div> -->
+
+<!-- <div class="outermost-container">
+  <section class="header">
+      <div class="logo">
+        <h1>rentHub</h1>
+      </div>
+      <div class="actions">
+        <span class="notification-icon"> 🔔 </span>
+        <span class="cart-icon"> 🛒 </span>
+      </div>
+  </section>
+  
+  <div class="outer-container">
+      <div class="input-container">
+          <input
+          type="text"
+          required
+          id="tempProductId"
+          placeholder="Ex. 5"
+          class="custom-input"
+         />
+         <button class="custom-button-1" (click)="getProductByProductId()"> Search </button>
+        </div>
+        
+        <div *ngIf="tempProduct" class="product-details-container">
+          <div class="product-image">
+              <h2> {{ tempProduct.productName}} </h2>
+              <img *ngIf="tempProduct.productImageUrl" height="100px" width="100px" [src]="tempProduct.productImageUrl">
+          </div>
+  
+          <div class="product-details">
+          <p *ngIf="tempProduct.productPrice">Price: {{ tempProduct.productPrice | currency:'INR'}}</p>
+          <p *ngIf="tempProduct.productBrand">Brand: {{ tempProduct.productBrand }}</p>
+          <p *ngIf="tempProduct.productDescription">Description: {{ tempProduct.productDescription }}</p>
+          <p *ngIf="tempProduct.productCategory">Category: {{ tempProduct.productCategory }}</p>
+          </div>
+
+          <div *ngIf="searchClicked">
+            <button class="custom-button-2" (click)="routeToPayment()"> Buy Now </button>
+          </div>
+          
+        </div>
+  </div> -->
+<div class="outermost-container">
+  <div class="outer-container">
+    <div class="centered-container">
+      <div class="input-container">
+        <input type="text" required [(ngModel)]="productName" placeholder="Ex. industrial equipment"
+          class="custom-input" />
+        <button class="custom-button-1" (click)="getProductByProductName()"> Search </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <h4>Filter by</h4>
+        <div class="container">
+          <b>Categories</b>
+          <div *ngFor="let categories of allProductCategories">
+            <input class="form-check-input" type="checkbox" (change)="filterByCategories($event);" id="filter"
+              value="{{categories}}">
+            <label class="form-check-label" for="filter" id="filter">{{categories}}</label>
+          </div>
+        </div>
+        <div class="container" class="input-group mb-3">
+          <b>Price</b>
+          <div>
+            <label class="form-control" class="form-check-label" for="amountfilter" id="filter">Below</label>
+            <input class="form-control" type="text" (change)="filterByCategories($event);" id="amountfilter"
+              (change)="filterByAmountLessThan($event)">
+          </div>
+          <hr>
+          <div>
+            <label class="form-control" class="form-check-label" for="amountfilterMoreThan"
+              id="amountfilterMoreThan">Above</label>
+            <input class="form-control" type="text" (change)="filterByCategories($event);" id="amountfilterMoreThan"
+              (change)="filterByAmountMoreThan($event)">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-10">
+
+        <!-- Display all products when search is not clicked -->
+        <div *ngIf="!searchClicked" class="product-cards">
+          <div class="product-card" *ngFor="let product of productDetails">
+            <!-- Product Image -->
+            <div class="product-image">
+              <h2><strong>{{ product.productName }}</strong></h2>
+              <img *ngIf="product.productImageUrl" height="200px" width="200px" [src]="product.productImageUrl">
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+              <p *ngIf="product.productPrice"><strong>Price:</strong> {{ product.productPrice | currency: 'INR' }}</p>
+              <p *ngIf="product.productBrand"><strong>Brand:</strong> {{ product.productBrand }}</p>
+              <p *ngIf="product.productCategory"><strong>Category:</strong> {{ product.productCategory }}</p>
+              <button class="custom-button-2" (click)="routeToAddProduct(product)">View Product</button>
+              <!-- <button mat-button color="primary" [routerLink]="['/productdet',item.productId]">view details</button> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Display searched product when search is clicked -->
+        <div *ngIf="searchClicked" class="product-cards">
+          <div class="product-card" *ngFor="let searchedProduct of searchedProductList">
+            <!-- Searched Product Image -->
+            <div class="product-image">
+              <h2><strong>{{ searchedProduct.productName }}</strong></h2>
+              <img *ngIf="searchedProduct.productImageUrl" height="200px" width="200px"
+                [src]="searchedProduct.productImageUrl">
+            </div>
+
+            <!-- Searched Product Details -->
+            <div class="product-details">
+              <p *ngIf="searchedProduct.productPrice"><strong>Price:</strong> {{ searchedProduct.productPrice |
+                currency:
+                'INR' }}</p>
+              <p *ngIf="searchedProduct.productBrand"><strong>Brand:</strong> {{ searchedProduct.productBrand }}</p>
+              <p *ngIf="searchedProduct.productCategory"><strong>Category:</strong> {{ searchedProduct.productCategory
+                }}
+              </p>
+              <button class="custom-button-2" (click)="routeToAddProduct(searchedProduct)">View Product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- <div *ngFor="let pro of productDetails">
+    <h2>{{ pro.productName }}</h2>
+    <p>Price: {{ pro.productPrice }}</p>
+    <p>Brand: {{ pro.productBrand }}</p>
+    <p>Description: {{ pro.productDescription }}</p>
+    <p>Category: {{ pro.productCategory }}</p>
+</div> -->
+
+<!--  -->

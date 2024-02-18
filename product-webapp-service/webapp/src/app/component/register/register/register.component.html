@@ -1,0 +1,83 @@
+
+<section class="vh-200 bg-image" style="background-color:#0d1338;">
+    <div class="container py-5 h-100" >
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="col-15 col-md-12 col-lg-8 col-xl-6">
+          
+          <div class="card shadow-2-strong" style="border-radius: 1rem; opacity:0.92;">
+            <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)" >
+                <div class="form-header p-2 card-body">
+                  <h2 class="mb text-center">Registration Form</h2>
+                </div>
+                <div class="card-body p-5 container">
+                    <div class="row">
+                      <div class="form-outline mb-4">
+                        <label class="form-label form-text" for="userId">UserID</label>
+                        <input type="text" id="userId" formControlName="userId" class="form-control input" placeholder="User id"/>
+                        <small *ngIf="registerForm.get('userId')?.touched && registerForm.get('userId')?.hasError('required')">User Id cannot be empty</small>
+                      </div>
+
+                      <div class="form-outline mb-4 ">
+                        <label class="form-label form-text" for="typepassword">Password</label>
+                        <input type="password" id="typepassword" formControlName="password" class="form-control input" placeholder="Password"/>
+                        <small *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('required')">Password cannot be empty</small>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-outline mb-4 ">
+                        <label class="form-labelv form-text" for="firstname">First Name</label>
+                        <input type="text" id="firstname" formControlName="firstName" class="form-control input" placeholder="Name"/>
+                        <small *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.hasError('required')"> Name is required </small>
+                        <small *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.hasError('pattern')"> Name include only alphabets </small>
+                      </div>
+
+                      <div class="form-outline mb-4 ">
+                        <label class="form-labelv form-text" for="lastname">Last Name</label>
+                        <input type="text" id="lastname" formControlName="lastName" class="form-control input" placeholder="Name"/>
+                        <small *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.hasError('required')"> Name is required </small>
+                        <small *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.hasError('pattern')"> Name include only alphabets </small>
+                      </div>
+
+                      <div class="form-outline mb-4 ">
+                        <label class="form-label form-text" for="Email">Email</label>
+                        <input type="email" id="Email" formControlName="email" class="form-control input" placeholder="@"/>
+                        <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')"> Email is required </small>
+                        <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('email')"> Email format is required </small>
+                      </div>
+                    </div>
+
+                    <div class="row">
+
+  
+                      <div class="form-outline mb-4 ">
+                          <label class="form-label form-text" for="phone">Phone Number</label>
+                          <input type="text" id="phone" formControlName="phone" class="form-control input" placeholder="+91"/>
+                          <small *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.hasError('required')">Phone number cannot be empty</small>
+                          <small *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.hasError('pattern')">Phone number should be between 10-13 digits</small>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <label class="form-check-label" ><a routerLink="/login" target="_self">Sign In</a></label>
+                    </div>
+
+                    <div class="row">
+                      <div class="text-center col">
+                        <button class="btn btn-primary btn-block" style="background-color:  hsl(36, 97%, 55%);" type="submit" [disabled]="registerForm.invalid">Submit</button>
+                      </div>
+                      <div class="text-center col">
+                        <button class="btn btn-primary btn-block" style="background-color:  hsl(36, 97%, 55%);" type="button" (click)="onReset()">Reset</button>
+                      </div>
+                    </div>
+        
+                  </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  

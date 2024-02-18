@@ -1,0 +1,33 @@
+.user-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-card .card-body {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .user-initial {
+    background-color: #3498db;
+    color: white;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

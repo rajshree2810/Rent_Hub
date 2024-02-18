@@ -1,0 +1,26 @@
+
+          
+         <div class="product-description">
+          <div class="product-image">
+            <img *ngIf="product.productImageUrl" [src]="product.productImageUrl" style="height: 250px; width: 250px;">
+          </div>
+          <div class="product-details">
+            <h2 class="product-name">{{ product.productName }}</h2>
+            <p><span class="property-name">Product Id:</span> {{ product.productId }}</p>
+            <p><span class="property-name">Product Price:</span> {{ product.productPrice | currency: 'INR' }}</p>
+            <p><span class="property-name">Product Brand:</span> {{ product.productBrand }}</p>
+            <p><span class="property-name">Product Category:</span> {{ product.productCategory }}</p>
+            <p><span class="property-name">Product Description:</span> {{ product.productDescription }}</p>
+            
+            <!-- <p><span class="property-name">Product Availability Start Date:</span> {{ product.startData | date: 'dd-MM-yyyy' }}</p>
+            <p><span class="property-name">Product Availability End Date:</span> {{ product.endData | date: 'dd-MM-yyyy' }}</p> -->
+            <div class="action-buttons">
+              <button class="buy-now-button" (click)="routeToPayment()">Buy Now</button>
+              <button class="buy-now-button add-to-cart-button" (click)="addToCartAndNavigateToCart()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+          
+    
+

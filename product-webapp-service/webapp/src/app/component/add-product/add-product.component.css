@@ -1,0 +1,65 @@
+.background-wrapper {
+  background-image: url('/assets/background-image.jpg'); /* Use an absolute path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+.container.bg-light.p-3 {
+  width: 65%;
+  max-width: 600px; /* Set a maximum width if desired */
+  margin: 0 auto;
+  background-color: #211641;
+  background-color: rgba(255, 255, 255, 0.8); /* You can adjust the opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  color: #ffffff;
+}
+
+.bg-custom {
+  background-color: #0d1338;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  background-color: #fba31c;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-file-input::-webkit-file-upload-button:hover {
+  background-color: #fba31c; /* Same color as normal state */
+  filter: brightness(1.2);
+}
+
+.example-form .example-full-width {
+  width: 300px; /* Set the width to 100% for consistent alignment */
+  max-width: 400px; /* Set a maximum width if needed */
+}
+
+.form-label {
+  color: black;
+  display: inline-block;
+}
+
+.custom-button{
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 3px 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,60 @@
+
+<div class="jumbotron jumbotron-fluid bg-light">
+    <div class="container">
+      <h1 class="display-4 mt-6">My Orders</h1>
+      <nav>
+        <button type="button" class="btn btn-light" (click)="showAllOrder()" id="ViewAll">View All Orders</button>
+        <button type="button" class="btn btn-light" (click)="showSoldOrder()">Products Sold</button>
+        <button type="button" class="btn btn-light" (click)="showBuyedOrder()">Products Bought</button>
+      </nav>
+    </div>
+</div>
+
+<div class="container-fluid my-5 justify-content-center" *ngFor="let order of orderList">
+    <div class="card px-2">
+        <div class="card-header bg-white">
+          <div class="row justify-content-between">
+            <div class="col">
+                <p class="text-muted"> Order ID:  <span class="font-weight-bold text-dark">{{order.transaction_id}}</span></p> 
+                <p class="text-muted"> Payment ID: <span class="font-weight-bold text-dark">{{order.paymentId}}</span> </p>
+            </div>
+            <div class="col">
+                <p class="text-muted"> Buyer Name:  <span class="font-weight-bold text-dark">{{order.customer.firstName}} {{order.customer.lastName}}</span></p> 
+                <p class="text-muted" *ngIf="order.rentedProduct.sellerDetails!=null"> Seller Name: <span class="font-weight-bold text-dark">{{order.rentedProduct.sellerDetails.firstName}} {{order.rentedProduct.sellerDetails.lastName}}</span> </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body row">
+            <div class="col mt-3">
+                <img class="align-self-center img-fluid" [src]="order.rentedProduct.productImageUrl" width="200px " height="150px">
+            </div>
+            <div class="media col">
+                <div class="media-body">
+                    <h5 class="bold">{{order.rentedProduct.productName}}</h5>
+                    <p class="text-muted small">{{order.rentedProduct.productBrand}}</p>
+                    <h4 class="mt-3 mb-4 bold"> <span class="mt-5">&#x20B9;</span>{{order.rentedProduct.productPrice}}<span class="small text-muted"> Paid</span></h4>
+                    <!-- <p class="text-muted">{{order.rentedProduct.productDescription}}</p> -->
+                    <p class="text-muted">Category {{order.rentedProduct.productCategory}}</p>   
+                </div>
+            </div>
+        </div>
+        <div class="row px-3">
+            <div class="col">
+                <ul id="progressbar" >
+                    <li class="step0 active " id="step1">PLACED ON {{order.orderDate|date}}</li>
+                    <li class="step0 active text-center" id="step2">SHIPPED</li>
+                    <li class="step0  text-muted text-right bold" id="step3">EXPECTED TO DELIVERED {{order.deliveryDate|date}}</li>
+                </ul>
+            </div>
+        </div>
+         <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0">
+            <div class="row text-center  ">
+                <div class="col  my-auto  border-line "><h5><a (click)="deleteOrder(order.transaction_id)">Cancel Order</a></h5></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

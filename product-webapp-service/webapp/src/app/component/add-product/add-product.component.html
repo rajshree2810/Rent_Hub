@@ -1,0 +1,166 @@
+<div class="background-wrapper">
+  <div class="container bg-light p-3">
+    <div class="container border">
+      <div class="container mt-3">
+        <h2 class="text-center mt-2 p-3 bg-custom text-white">
+          Enter New product details
+        </h2>
+        
+          <div class="example-form">
+          <mat-form-field class="example-full-width">
+            <label class="form-label">Product Id </label><br>
+            <mat-label>Enter the Product Id</mat-label>
+            <input
+              type="text"
+              required
+              matInput
+              placeholder="Ex. 1"
+              [(ngModel)]="product.productId"
+              value="Product details"
+            />
+          </mat-form-field>
+        </div>
+          <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <label class="form-label">Product name </label>
+              <mat-label>Enter the product name</mat-label>
+              <input
+                type="text"
+                required
+                matInput
+                placeholder="Ex. Tractor"
+                [(ngModel)]="product.productName"
+                value="Product details"
+              />
+            </mat-form-field>
+          </div>
+          <!-- Code to enter input data for Text-area -->
+          <mat-form-field class="example-full-width">
+            <label class="form-label">Product price </label>
+            <mat-label>Enter the product price</mat-label>
+            <input
+              type="text"
+              required
+              matInput
+              placeholder="price per week"
+              [(ngModel)]="product.productPrice"
+              value="Product details"
+            />
+          </mat-form-field>
+  
+          <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <label class="form-label">Product Brand </label>
+              <mat-label>Enter the product brand</mat-label>
+              <input
+                type="text"
+                required
+                matInput
+                placeholder="Ex. TATA"
+                [(ngModel)]="product.productBrand"
+                value="Product details"
+              />
+            </mat-form-field>
+          </div>
+  
+          <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <label class="form-label">Product description </label>
+              <mat-label>Enter the product description</mat-label>
+              <input
+                type="text"
+                required
+                matInput
+                placeholder="Ex. What work it does etc"
+                [(ngModel)]="product.productDescription"
+                value="Product details"
+              />
+            </mat-form-field>
+          </div>
+  
+           <!-- <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <label class="form-label">Seller Email:</label>
+              <mat-label>Enter the seller email</mat-label>
+              <input
+                type="text"
+                required
+                matInput
+                placeholder="Ex. seller@gmail.com"
+                [(ngModel)]="product.sellerEmail"
+                value="Product deteails"
+              />
+            </mat-form-field>
+          </div> -->
+  
+          <div class="example-form">
+            <label class="form-label">Product category </label>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="product.productCategory">
+              <option selected>Please select</option>
+              <option value="Aerial work platforms">Aerial work platforms</option>
+              <option value="General construction tools">General construction tools</option>
+              <option value="Concrete And Masonry">Concrete And Masonry</option>
+              <option value="Cooling, Heating, Drying and Indoor air Quality">Cooling, Heating, Drying and Indoor air Quality</option>
+              <option value="Generators and Accessories">Generators and Accessories</option>
+              <option value="Floor Care">Floor Care</option>
+              <option value="Lawn, Landscape, And Tree">Lawn, Landscape, And Tree</option>
+              <option value="Forklifts">Forklifts</option>
+            </select>
+          </div>
+          
+  
+          <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <label class="form-label">Product availability start date </label>
+              <mat-label>Start date</mat-label>
+              <input
+                type="date"
+                required
+                matInput
+                [(ngModel)]="product.startDate"
+                value="Product details"
+              />
+            </mat-form-field>
+          </div>
+  
+          <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <label class="form-label">Product availability end date </label>
+              <mat-label>End date</mat-label>
+              <input
+                type="date"
+                required
+                matInput
+                [(ngModel)]="product.endDate"
+                value="Product details"
+              />
+            </mat-form-field>
+          </div>
+  
+          <div class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Upload File Image</mat-label><br>
+            </mat-form-field>
+            <input
+                type="file"
+                required
+                (click)="openWidget()"
+                class="custom-file-input"
+              />
+              <button class="custom-button" (click)="openWidget()">Upload</button><br>
+              <img [src]="product.productImageUrl" height="100px" width="100px">
+          </div>
+  
+          <div class="button-container">
+            <button mat-raised-button style="background-color: #0d1338; color: #ffffff;" (click)="addProductDetails()">
+              Add
+            </button>
+          </div>
+          
+          
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  </div>
